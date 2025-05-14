@@ -390,6 +390,9 @@ where DateOfJoining between '2020-01-01' and '2020-12-31';
 
 ![image](https://github.com/user-attachments/assets/7cb71cea-910e-476f-b2c1-62ffa05069ba)
 
+SEB OUTPUT GRADE:
+![image](https://github.com/user-attachments/assets/1ba90d65-4990-4054-aa72-ab7e9382d145)
+
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
