@@ -51,22 +51,65 @@ Design a database for patient management, appointments, medical records, and bil
 University / Hospital (choose one)
 
 ## ER Diagram:
-![ER Diagram](er_diagram.png)
+![image](https://github.com/user-attachments/assets/95a34c97-34eb-450b-9fc3-214415244855)
+
 
 ## Entities and Attributes:
-- Entity1: Attributes
-- Entity2: Attributes
+- Entity	Attributes
+-Hospital-> Hospital_ID (PK), Name, Contact, Address, Medical_List
+-Doctor-> Doctor_ID (PK), Name, Specialization, Contact, Work_Schedule
+-Patient-> Patient_ID (PK), Name, DOB, Gender, Phone, Address
+-Medical_Records->Record_ID (PK), Diagnosis, Treatment, Test_Result, Medications
+-Billing	->Billing_ID (PK), Date, Amount, Payment_Status, Method
 ...
 
 ## Relationships and Constraints:
-- Relationship1 (Cardinality, Participation)
-- Relationship2 (Cardinality, Participation)
+- Hospital – Doctor	(A hospital employs many doctors)	1 (Hospital) : M (Doctors)
+Hospital – Patient	(A hospital admits many patients)	1 : M
+Doctor – Patient	(A doctor treats many patients, and a patient can be treated by many doctors)	M : N
+Patient – Medical_Records	(A patient has multiple medical records)	1 : M
+Patient – Billing	(A patient receives many bills) 1 : M
+Hospital – Billing	(Hospital generates bills)	1 : M
 ...
 
 ## Extension (Prerequisite / Billing):
-- Explain how you modeled prerequisites or billing.
+- Billing Attributes:
+
+billing id (Primary Key)
+
+date
+
+method (e.g., Cash, Card, UPI)
+
+payment status (e.g., Paid, Pending)
+
+total amount
+
+Hospital Attributes:
+
+name
+
+contact
+
+special list
+
+city
+
+Patient (Indirectly related through hospital handling billing)
+
+Relationship: handle
+Between: hospital and billing
+
+Meaning: Each hospital handles many billings, and each billing is handled by one hospital.
+
+Cardinality:
+
+One hospital → can handle many billing records (1:M)
+
+Each billing → belongs to one hospital (M:1)
 
 ## Design Choices:
-Brief explanation of why you chose certain entities, relationships, and assumptions
+In designing the hospital ER diagram, we chose core entities like Patient, Doctor, Hospital, Medical Records, and Billing because they represent the main elements involved in hospital operations. Patients interact with doctors, receive treatment, and have medical records created, while hospitals manage these interactions and handle billing. Relationships such as "meets" between doctors and patients (many-to-many) allow tracking of consultations, and "admission" links patients to hospitals. The "has assigned" relationship connects hospitals and doctors, showing where each doctor works. We included Billing as a separate entity to track payment details, assuming each billing entry is handled by one hospital. These choices ensure the ER model clearly captures the flow of healthcare services and financial operations within a hospital, with attributes like diagnoses, treatments, and payment status fully detailed.
 
 ## RESULT
+Hence,the concepts of ER diagram is understood and applied by creating an ER diagram for a real world application. 
